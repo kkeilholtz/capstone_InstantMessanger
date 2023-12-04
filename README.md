@@ -2,7 +2,7 @@
 Kohl Keilholtz
 
 ## Overview
-This project is an instant messaging service, that allows two users to communicate in real time over a webpage.
+This project is an instant messaging service, that allows two users to communicate in real time over a webpage. It uses socket.io and node.js in order to achieve this.
 
 ## Features
 - **Instant Communication line** You and whoever is on the site can see messsages sent between eachother in real time.

@@ -1,0 +1,28 @@
+{
+  "name": "capstone_instantmessanger",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Kohl Keilholtz",
+  "main": "index.js",
+  "scripts": {
+    "test": "\u001b[A\u001b[A\u001b[A\u001b[C\u001b[C\u001b[B\u001b[B\u001b[B\"e\u001b[Dno test specified\""
+  },
+  "author": "Kohl Keilholtz",
+  "license": "ISC",
+  "devDependencies": {
+    "ejs-lint": "^2.0.0",
+    "html-validate": "^8.2.0",
+    "node-html-parser": "^6.1.5",
+    "standard": "^17.1.0",
+    "stylelint": "^15.10.2",
+    "stylelint-config-standard": "^34.0.0",
+    "svgoban": "^1.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "socket.io": "^4.7.2"
+  }
+}

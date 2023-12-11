@@ -3,29 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/site.css">
     <title>Instant Messenger</title>
 </head>
-<body>
-    <ul id="messages"></ul>
-    <form id="form" action="" onsubmit="return false;">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-      $(function () {
-        var socket = io();
+<body> 
+  <script>
+    // Prompt for user's name
+    function namePrompt() {
+      let userName;
+      while (!userName) {
+        userName = window.prompt("Enter a Username to join the chat");
+        if (!userName) {
+          alert("Username required to join the chat. Please enter a username to continue.");
+        }
+      }
+      return userName;
+    }
   
-        $('form').submit(function () {
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-        });
+    // Send user's name to server.js
+    const userName = namePrompt();
+    const socket = io({ query: { name: userName } });
   
-        socket.on('chat message', function (msg) {
-          $('#messages').append($('<li>').text(msg));
-        });
+    $(document).ready(function () {
+      $('form').submit(function () {
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
       });
-    </script>
+  
+      socket.on('chat message', function (data) {
+        // Display the username and message
+        $('#messages').append($('<li>').text(`${data.username}: ${data.message}`));
+      });
+
+      $('#clearBtn').click(function () {
+        if (confirm("Are you sure you want to clear the chat log?")) {
+          socket.emit('clear chat');
+        }
+      });
+      // Listen for a clear chat event from the server
+      socket.on('cleared chat', function () {
+        // Clear the messages on the client side
+        $('#messages').empty();
+      });
+
+    });
+  </script>  
+  <div id="wrapper"></div>
+  <ul id="messages"></ul>
+  <form id="form" action="" onsubmit="return false;">
+    <input id="m" autocomplete="off" /><button>Send</button>
+  </form>
+  <button id="clearBtn">Clear Chat</button>
   </body>
 </html>

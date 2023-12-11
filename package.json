@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Kohl Keilholtz",
-  "main": "index.js",
+  "main": "index.ejs",
   "scripts": {
     "test": "\u001b[A\u001b[A\u001b[A\u001b[C\u001b[C\u001b[B\u001b[B\u001b[B\"e\u001b[Dno test specified\""
   },

@@ -11,14 +11,20 @@ const io = new Server(server);
 const PORT = process.env.PORT || 5163;
 
 // Postgres configuration ////////////////////////////////// 
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'postgres',
+//   password: 'postgres',
+//   port: 5432,
+//   ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false,
+// });
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'postgres',
-  password: 'postgres',
-  port: 5432,
-  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false,
-});
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+})
 
 // Maintain a list of connected users //////////////////////
 const users = [];

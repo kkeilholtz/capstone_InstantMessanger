@@ -10,7 +10,7 @@ This project is an instant messaging service, that allows two users to communica
 - **Simple Interface** The user experience is streamlined to be simplistic and very usable. No distractions, just communication.
 
 ## How to join
-Navigate to the provided link in the about section of this project, load the page, and you are ready to go. 
+Navigate to the provided link in the about section of this project, or click [here](https://messenger-pa4s.onrender.com) load the page, and you are ready to go. 
 
 ## Contact
 If you have any questions, contact me at [kkeilholtz@student.cvtc.edu](mailto:kkeilholtz@student.cvtc.edu)
